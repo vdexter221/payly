@@ -8,19 +8,22 @@ import Products from "@/pages/products";
 import Industry from "@/pages/industry";
 import Resources from "@/pages/resources";
 import Pricing from "@/pages/pricing";
+import RootLayout from "@/components/layout/RootLayout";
 
 function Router() {
   return (
-    <Switch>
-      {/* Add pages below */}
-      <Route path="/" component={Home} />
-      <Route path="/products" component={Products} />
-      <Route path="/industry" component={Industry} />
-      <Route path="/resources" component={Resources} />
-      <Route path="/pricing" component={Pricing} />
-      {/* Fallback to 404 */}
-      <Route component={NotFound} />
-    </Switch>
+    <RootLayout>
+      <Switch>
+        {/* Add pages below */}
+        <Route path="/" component={Home} />
+        <Route path="/products" component={Products} />
+        <Route path="/industry" component={Industry} />
+        <Route path="/resources" component={Resources} />
+        <Route path="/pricing" component={Pricing} />
+        {/* Fallback to 404 */}
+        <Route component={NotFound} />
+      </Switch>
+    </RootLayout>
   );
 }
 
