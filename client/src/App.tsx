@@ -8,6 +8,8 @@ import Products from "@/pages/products";
 import Industry from "@/pages/industry";
 import Resources from "@/pages/resources";
 import Pricing from "@/pages/pricing";
+import Login from "@/pages/login";
+import Signup from "@/pages/signup";
 import RootLayout from "@/components/layout/RootLayout";
 
 function Router() {
@@ -20,6 +22,8 @@ function Router() {
         <Route path="/industry" component={Industry} />
         <Route path="/resources" component={Resources} />
         <Route path="/pricing" component={Pricing} />
+        <Route path="/login" component={Login} />
+        <Route path="/signup" component={Signup} />
         {/* Fallback to 404 */}
         <Route component={NotFound} />
       </Switch>

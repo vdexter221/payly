@@ -50,8 +50,12 @@ export default function Navigation() {
         </NavigationMenu>
 
         <div className="flex items-center space-x-4">
-          <Button variant="ghost">Log in</Button>
-          <Button>Sign up</Button>
+          <Link href="/login">
+            <Button variant="ghost">Log in</Button>
+          </Link>
+          <Link href="/signup">
+            <Button>Sign up</Button>
+          </Link>
         </div>
       </div>
     </header>
