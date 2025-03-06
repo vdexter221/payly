@@ -25,7 +25,7 @@ export default function Footer() {
               </li>
             </ul>
           </div>
-          
+
           <div>
             <h3 className="font-semibold mb-4">Company</h3>
             <ul className="space-y-2">
@@ -93,7 +93,7 @@ export default function Footer() {
         <Separator className="my-8" />
 
         <div className="text-center text-sm text-muted-foreground">
-          © 2024 SiteFlow. All rights reserved.
+          © 2024 Payly.lat. All rights reserved.
         </div>
       </div>
     </footer>
