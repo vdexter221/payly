@@ -58,9 +58,6 @@ app.use((req, res, next) => {
 
   // Try to serve on port 5000 first, then fallback to other ports
   const tryPort = (port) => {
-    // Close any existing connection before trying to listen
-    server.close();
-    
     server.listen({
       port,
       host: "0.0.0.0",
