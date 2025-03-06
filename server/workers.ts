@@ -2,20 +2,19 @@
 // This file serves as an entry point for Cloudflare Workers
 import { Hono } from 'hono';
 import { serveStatic } from 'hono/cloudflare-workers';
-import path from 'path';
 
 const app = new Hono();
 
-// Serve static files
-app.get('/*', serveStatic({ root: './public' }));
+// Serve static files from the public directory
+app.get('/assets/*', serveStatic({ root: './public' }));
 
 // Handle API requests
 app.all('/api/*', async (c) => {
-  // Here you would implement your API handlers or proxy to your Express app
+  // Here you would implement your API handlers
   return c.json({ message: 'API endpoint' });
 });
 
-// Handle all other routes for SPA
+// Serve the index.html for all other routes (SPA fallback)
 app.get('*', serveStatic({ path: './public/index.html' }));
 
 export default app;
