@@ -10,6 +10,7 @@ import Resources from "@/pages/resources";
 import Pricing from "@/pages/pricing";
 import Login from "@/pages/login";
 import Signup from "@/pages/signup";
+import About from "@/pages/about";
 import RootLayout from "@/components/layout/RootLayout";
 
 function Router() {
@@ -22,6 +23,7 @@ function Router() {
         <Route path="/industry" component={Industry} />
         <Route path="/resources" component={Resources} />
         <Route path="/pricing" component={Pricing} />
+        <Route path="/about" component={About} />
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
         {/* Fallback to 404 */}
