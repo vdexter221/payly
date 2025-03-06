@@ -1,9 +1,10 @@
+
 name = "payly-lat"
 compatibility_date = "2024-03-06"
+main = "dist/index.html"
 
 [site]
 bucket = "./dist/public"
-entry-point = "dist/index.html"
 
 [build]
 command = "npm run build"
