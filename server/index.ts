@@ -74,6 +74,19 @@ app.use((req, res, next) => {
     });
   };
   
-  // Start with port 5000
-  tryPort(5000);
+  // Check if running in Cloudflare Workers environment
+  if (typeof process.env.REPLIT_DEPLOYMENT !== 'undefined') {
+    log('Running in deployment environment');
+    // Use port from environment or default to 8787 for Cloudflare Workers
+    const port = process.env.PORT || 8787;
+    server.listen({
+      port: parseInt(port.toString()),
+      host: "0.0.0.0",
+    }, () => {
+      log(`serving on port ${port} in deployment mode`);
+    });
+  } else {
+    // Start with port 5000 for development
+    tryPort(5000);
+  }
 })();
