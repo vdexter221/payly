@@ -1,7 +1,7 @@
 
 name = "payly-lat"
 compatibility_date = "2024-03-06"
-main = "dist/index.html"
+main = "dist/index.js"
 
 [site]
 bucket = "./dist/public"
