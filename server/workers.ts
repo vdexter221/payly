@@ -6,7 +6,7 @@ import { serveStatic } from 'hono/cloudflare-workers';
 const app = new Hono();
 
 // Serve static files from the public directory
-app.get('/assets/*', serveStatic({ root: './public' }));
+app.get('/assets/*', serveStatic({ root: './' }));
 
 // Handle API requests
 app.all('/api/*', async (c) => {
@@ -15,6 +15,6 @@ app.all('/api/*', async (c) => {
 });
 
 // Serve the index.html for all other routes (SPA fallback)
-app.get('*', serveStatic({ path: './public/index.html' }));
+app.get('*', serveStatic({ path: './index.html' }));
 
 export default app;

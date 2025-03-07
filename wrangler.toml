@@ -9,3 +9,7 @@ bucket = "./dist/public"
 
 [build]
 command = "npm run build"
+
+# Add this section to properly handle static assets
+[assets]
+dir = "dist/public"
