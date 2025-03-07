@@ -31,6 +31,8 @@ app.get('*', async (c: Context) => {
     // Get the path from the request
     const url = new URL(c.req.url);
     const path = url.pathname;
+    
+    console.log(`Attempting to serve: ${path}`);
 
     // Try to get the file from static content
     const file = await c.env.__STATIC_CONTENT.get(path, {
@@ -38,15 +40,19 @@ app.get('*', async (c: Context) => {
     });
 
     if (file) {
+      console.log(`Found file: ${path}`);
       // Determine content type based on file extension
       const contentType = getContentType(path);
       return new Response(file, {
         headers: {
           'Content-Type': contentType,
           'Cache-Control': 'public, max-age=31536000',
+          'Access-Control-Allow-Origin': '*',
         },
       });
     }
+
+    console.log(`File not found: ${path}, trying index.html`);
 
     // If file not found, try index.html
     const indexFile = await c.env.__STATIC_CONTENT.get('/index.html', {
@@ -54,14 +60,17 @@ app.get('*', async (c: Context) => {
     });
 
     if (indexFile) {
+      console.log('Found index.html, serving as fallback');
       return new Response(indexFile, {
         headers: {
           'Content-Type': 'text/html',
           'Cache-Control': 'public, max-age=31536000',
+          'Access-Control-Allow-Origin': '*',
         },
       });
     }
 
+    console.log('No files found, serving fallback content');
     // If neither exists, return the fallback content
     return serveFallbackContent(c);
   } catch (error) {
@@ -112,6 +121,8 @@ function getContentType(path: string): string {
     'eot': 'application/vnd.ms-fontobject',
     'otf': 'font/otf',
     'webp': 'image/webp',
+    'avif': 'image/avif',
+    'apng': 'image/apng',
   };
   return contentTypes[ext || ''] || 'application/octet-stream';
 }
