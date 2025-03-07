@@ -56,37 +56,24 @@ app.use((req, res, next) => {
     serveStatic(app);
   }
 
-  // Try to serve on port 5000 first, then fallback to other ports
-  const tryPort = (port) => {
+  // Try to serve the app on port 5000 first, then fallback to another port
+  // this serves both the API and the client
+  const tryListen = (port: number) => {
     server.listen({
       port,
       host: "0.0.0.0",
       reusePort: true,
     }, () => {
       log(`serving on port ${port}`);
-    }).on('error', (err) => {
-      if (err.code === 'EADDRINUSE') {
-        log(`Port ${port} is in use, trying port ${port + 1}`);
-        tryPort(port + 1);
+    }).on('error', (err: any) => {
+      if (err.code === 'EADDRINUSE' && port === 5000) {
+        log(`Port ${port} is in use, trying port 5001`);
+        tryListen(5001);
       } else {
         throw err;
       }
     });
   };
   
-  // Check if running in Cloudflare Workers environment
-  if (typeof process.env.REPLIT_DEPLOYMENT !== 'undefined') {
-    log('Running in deployment environment');
-    // Use port from environment or default to 8787 for Cloudflare Workers
-    const port = process.env.PORT || 8787;
-    server.listen({
-      port: parseInt(port.toString()),
-      host: "0.0.0.0",
-    }, () => {
-      log(`serving on port ${port} in deployment mode`);
-    });
-  } else {
-    // Start with port 5000 for development
-    tryPort(5000);
-  }
+  tryListen(5000);
 })();
