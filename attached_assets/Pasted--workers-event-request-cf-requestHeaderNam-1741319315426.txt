@@ -1,0 +1,116 @@
+{
+  "$workers": {
+    "event": {
+      "request": {
+        "cf": {
+          "requestHeaderNames": {},
+          "httpProtocol": "HTTP/3",
+          "tlsCipher": "AEAD-AES128-GCM-SHA256",
+          "continent": "AS",
+          "clientAcceptEncoding": "gzip, deflate, br, zstd",
+          "country": "LK",
+          "verifiedBotCategory": "",
+          "tlsClientAuth": {
+            "certIssuerDNLegacy": "",
+            "certIssuerSKI": "",
+            "certSubjectDNRFC2253": "",
+            "certSubjectDNLegacy": "",
+            "certFingerprintSHA256": "",
+            "certNotBefore": "",
+            "certSKI": "",
+            "certSerial": "",
+            "certIssuerDN": "",
+            "certVerified": "NONE",
+            "certNotAfter": "",
+            "certSubjectDN": "",
+            "certPresented": "0",
+            "certRevoked": "0",
+            "certIssuerSerial": "",
+            "certIssuerDNRFC2253": "",
+            "certFingerprintSHA1": ""
+          },
+          "tlsClientExtensionsSha1": "C41EsFaMbI2h8yisJ6+AUiovX2k=",
+          "tlsExportedAuthenticator": {
+            "clientFinished": "57d5d16a038d06cc68bf4481b9059f22e0524101c9ee4c1f3f280c1d3e9337df",
+            "clientHandshake": "c1829832cc3f8a67b1e373a591cb07b3e198079e921da1f9859f1dbc541b5f66",
+            "serverHandshake": "e66eb5b4b9fbfd764d91e77f938edb6555c93c90bff9c3b3a0525447ffdb29c4",
+            "serverFinished": "43056eabb1e9b8e3d3d14f5540c9a639763df4008e760ed80da6d6b8ff295cdf"
+          },
+          "tlsVersion": "TLSv1.3",
+          "city": "Dehiwala",
+          "timezone": "Asia/Colombo",
+          "requestPriority": "",
+          "region": "Western Province",
+          "tlsClientRandom": "9et2aeP/SBxJvNkNnqHJFA7KWQAiPtJjqlVwsOGLB00=",
+          "longitude": "79.86030",
+          "latitude": "6.85050",
+          "postalCode": "10350",
+          "regionCode": "1",
+          "asOrganization": "Sri Lanka Telecom",
+          "tlsClientHelloLength": "1780",
+          "colo": "SIN",
+          "asn": 9329,
+          "edgeRequestKeepAliveStatus": 1
+        },
+        "url": "https://payly.vdexter003.workers.dev/",
+        "method": "GET",
+        "headers": {
+          "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+          "accept-encoding": "gzip, br",
+          "accept-language": "en-US,en;q=0.9,la;q=0.8",
+          "cf-connecting-ip": "112.134.82.57",
+          "cf-ipcountry": "LK",
+          "cf-ray": "91c712095baf3de1",
+          "cf-visitor": "{\"scheme\":\"https\"}",
+          "connection": "Keep-Alive",
+          "host": "payly.vdexter003.workers.dev",
+          "priority": "u=0, i",
+          "sec-ch-ua": "\"Not(A:Brand\";v=\"99\", \"Google Chrome\";v=\"133\", \"Chromium\";v=\"133\"",
+          "sec-ch-ua-mobile": "?0",
+          "sec-ch-ua-platform": "\"Windows\"",
+          "sec-fetch-dest": "document",
+          "sec-fetch-mode": "navigate",
+          "sec-fetch-site": "cross-site",
+          "sec-fetch-user": "?1",
+          "upgrade-insecure-requests": "1",
+          "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36",
+          "x-forwarded-proto": "https",
+          "x-real-ip": "112.134.82.57"
+        },
+        "path": "/"
+      },
+      "rayId": "91c712095baf3de1",
+      "executionModel": "stateless",
+      "response": {
+        "status": 500
+      }
+    },
+    "diagnosticsChannelEvents": [],
+    "truncated": false,
+    "scriptName": "payly",
+    "outcome": "ok",
+    "eventType": "fetch",
+    "scriptVersion": {
+      "id": "20df8cc9-2d0c-465c-8939-940c2177edd4"
+    },
+    "requestId": "91c712095baf3de1",
+    "cpuTimeMs": 4,
+    "wallTimeMs": 4
+  },
+  "level": "error",
+  "message": "GET https://payly.vdexter003.workers.dev/",
+  "$metadata": {
+    "now": "2025-03-07T03:40:55.841Z",
+    "id": "01JNQB10F1TBBMNK5X5YH512SE",
+    "requestId": "91c712095baf3de1",
+    "service": "payly",
+    "error": "GET https://payly.vdexter003.workers.dev/",
+    "message": "GET https://payly.vdexter003.workers.dev/",
+    "account": "6c86242b906bf26887ffd574bfe189ba",
+    "type": "cf-worker-event",
+    "fingerprint": "7adfd19c14a57d5325b5898472e2d224",
+    "origin": "fetch",
+    "messageTemplate": "GET <URL>",
+    "errorTemplate": "GET <URL>"
+  }
+}
