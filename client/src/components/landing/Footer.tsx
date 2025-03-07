@@ -9,19 +9,28 @@ export default function Footer() {
             <h3 className="font-semibold mb-4">Product</h3>
             <ul className="space-y-2">
               <li>
-                <a href="#" className="text-muted-foreground hover:text-foreground">
+                <span 
+                  onClick={() => window.location.href = "/features"} 
+                  className="text-muted-foreground hover:text-foreground cursor-pointer"
+                >
                   Features
-                </a>
+                </span>
               </li>
               <li>
-                <a href="#" className="text-muted-foreground hover:text-foreground">
+                <span 
+                  onClick={() => window.location.href = "/templates"} 
+                  className="text-muted-foreground hover:text-foreground cursor-pointer"
+                >
                   Templates
-                </a>
+                </span>
               </li>
               <li>
-                <a href="#" className="text-muted-foreground hover:text-foreground">
+                <span 
+                  onClick={() => window.location.href = "/integrations"} 
+                  className="text-muted-foreground hover:text-foreground cursor-pointer"
+                >
                   Integrations
-                </a>
+                </span>
               </li>
             </ul>
           </div>
@@ -30,19 +39,28 @@ export default function Footer() {
             <h3 className="font-semibold mb-4">Company</h3>
             <ul className="space-y-2">
               <li>
-                <a href="#" className="text-muted-foreground hover:text-foreground">
+                <span 
+                  onClick={() => window.location.href = "/about"} 
+                  className="text-muted-foreground hover:text-foreground cursor-pointer"
+                >
                   About
-                </a>
+                </span>
               </li>
               <li>
-                <a href="#" className="text-muted-foreground hover:text-foreground">
+                <span 
+                  onClick={() => window.location.href = "/blog"} 
+                  className="text-muted-foreground hover:text-foreground cursor-pointer"
+                >
                   Blog
-                </a>
+                </span>
               </li>
               <li>
-                <a href="#" className="text-muted-foreground hover:text-foreground">
+                <span 
+                  onClick={() => window.location.href = "/careers"} 
+                  className="text-muted-foreground hover:text-foreground cursor-pointer"
+                >
                   Careers
-                </a>
+                </span>
               </li>
             </ul>
           </div>
@@ -51,19 +69,28 @@ export default function Footer() {
             <h3 className="font-semibold mb-4">Resources</h3>
             <ul className="space-y-2">
               <li>
-                <a href="#" className="text-muted-foreground hover:text-foreground">
+                <span 
+                  onClick={() => window.location.href = "/docs"} 
+                  className="text-muted-foreground hover:text-foreground cursor-pointer"
+                >
                   Documentation
-                </a>
+                </span>
               </li>
               <li>
-                <a href="#" className="text-muted-foreground hover:text-foreground">
+                <span 
+                  onClick={() => window.location.href = "/help"} 
+                  className="text-muted-foreground hover:text-foreground cursor-pointer"
+                >
                   Help Center
-                </a>
+                </span>
               </li>
               <li>
-                <a href="#" className="text-muted-foreground hover:text-foreground">
+                <span 
+                  onClick={() => window.location.href = "/guides"} 
+                  className="text-muted-foreground hover:text-foreground cursor-pointer"
+                >
                   Guides
-                </a>
+                </span>
               </li>
             </ul>
           </div>

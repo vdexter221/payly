@@ -1,3 +1,9 @@
+
+// Important: When using this navigation menu with wouter Links, be careful about nesting.
+// Use the NavigationMenuSafeLink from navigation-menu-fix.tsx to prevent nested <a> tags errors.
+// The error "validateDOMNesting(...): <a> cannot appear as a descendant of <a>" occurs when 
+// you have a Link component (which renders as <a>) inside another component that also renders as <a>.
+
 import * as React from "react"
 import * as NavigationMenuPrimitive from "@radix-ui/react-navigation-menu"
 import { cva } from "class-variance-authority"
