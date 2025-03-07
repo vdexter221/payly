@@ -22,44 +22,52 @@ app.use('*', async (c: Context, next: Next) => {
   }
 });
 
-// Serve static files from the public directory
-app.get('/assets/*', serveStatic({ root: './' }));
-
 // Handle API requests
 app.all('/api/*', async (c: Context) => {
   // Here you would implement your API handlers
   return c.json({ message: 'API endpoint' });
 });
 
-// Serve the index.html for all other routes (SPA fallback)
+// Serve static files and handle SPA routing
 app.get('*', async (c: Context) => {
   try {
-    // Try to serve index.html from the static assets
+    // First try to serve the requested file
     const response = await c.env.ASSETS.fetch(c.req);
-    if (response.status === 404) {
-      // If the asset is not found, serve the fallback content
-      return c.html(`
-        <!DOCTYPE html>
-        <html lang="en">
-          <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Payly</title>
-            <style>
-              body { font-family: system-ui, sans-serif; margin: 0; padding: 2rem; text-align: center; }
-              h1 { color: #0066ff; }
-            </style>
-          </head>
-          <body>
-            <h1>Welcome to Payly</h1>
-            <p>The application is currently being set up.</p>
-          </body>
-        </html>
-      `, 200);
+    
+    // If the file exists, return it
+    if (response.status !== 404) {
+      return response;
     }
-    return response;
+
+    // If the file doesn't exist, try to serve index.html
+    const indexResponse = await c.env.ASSETS.fetch(new Request(new URL('/index.html', c.req.url)));
+    
+    // If index.html exists, return it
+    if (indexResponse.status !== 404) {
+      return indexResponse;
+    }
+
+    // If neither exists, return the fallback content
+    return c.html(`
+      <!DOCTYPE html>
+      <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Payly</title>
+          <style>
+            body { font-family: system-ui, sans-serif; margin: 0; padding: 2rem; text-align: center; }
+            h1 { color: #0066ff; }
+          </style>
+        </head>
+        <body>
+          <h1>Welcome to Payly</h1>
+          <p>The application is currently being set up.</p>
+        </body>
+      </html>
+    `, 200);
   } catch (error) {
-    console.error('Error serving index.html:', error);
+    console.error('Error serving content:', error);
     return c.html(`
       <!DOCTYPE html>
       <html lang="en">
