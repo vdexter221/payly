@@ -4,7 +4,7 @@ import { Context, Next } from 'hono';
 
 // Define the environment type for Cloudflare Workers
 interface Env {
-  __STATIC_CONTENT: KVNamespace;
+  __STATIC_CONTENT?: KVNamespace;
 }
 
 const app = new Hono<{ Bindings: Env }>();
@@ -28,6 +28,12 @@ app.all('/api/*', async (c: Context) => {
 // Serve static files and handle SPA routing
 app.get('*', async (c: Context) => {
   try {
+    // Check if KV namespace is available
+    if (!c.env.__STATIC_CONTENT) {
+      console.warn('KV namespace not available, serving fallback content');
+      return serveFallbackContent(c);
+    }
+
     // Get the path from the request
     const url = new URL(c.req.url);
     const path = url.pathname;
