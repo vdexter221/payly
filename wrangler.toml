@@ -2,7 +2,7 @@
 name = "payly"
 compatibility_date = "2024-03-06"
 main = "dist/index.js"
-nodejs_compat = true
+node_compat = true
 
 [site]
 bucket = "./dist/public"
@@ -10,11 +10,21 @@ bucket = "./dist/public"
 [build]
 command = "npm run build"
 
-# Properly handle static assets with fallback
-[assets]
-dir = "dist/public"
-fallback_document = "index.html"
+# Static assets configuration
+[[rules]]
+type = "CommonJS"
+globs = ["**/*.js"]
 
-# Add this to ensure dev access to your assets
+# Route all requests to our SPA
+[[routes]]
+pattern = "/*"
+custom_domain = true
+script = "dist/index.js"
+
+# Ensure all asset requests are properly handled
+[[rules]]
+type = "ESModule"
+globs = ["dist/index.js"]
+
 [dev]
 port = 8787
