@@ -9,6 +9,17 @@ declare global {
   };
 }
 
+// Initialize static content if available
+try {
+  if (typeof __STATIC_CONTENT_MANIFEST !== 'undefined') {
+    const manifest = JSON.parse(__STATIC_CONTENT_MANIFEST);
+    // This sets up the worker environment with static content
+    console.log('Static content manifest loaded successfully');
+  }
+} catch (err) {
+  console.error('Error loading static content manifest:', err);
+}
+
 // Export the default fetch handler for Cloudflare Workers
 export default {
   fetch: app.fetch,

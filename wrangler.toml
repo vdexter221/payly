@@ -1,5 +1,5 @@
 
-name = "payly-lat"
+name = "payly"
 compatibility_date = "2024-03-06"
 main = "dist/index.js"
 nodejs_compat = true
@@ -10,6 +10,11 @@ bucket = "./dist/public"
 [build]
 command = "npm run build"
 
-# Add this section to properly handle static assets
+# Properly handle static assets with fallback
 [assets]
 dir = "dist/public"
+fallback_document = "index.html"
+
+# Add this to ensure dev access to your assets
+[dev]
+port = 8787
