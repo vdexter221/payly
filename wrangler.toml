@@ -13,9 +13,5 @@ command = "npm run build"
 [triggers]
 crons = []
 
-[[routes]]
-pattern = "/*"
-script = "dist/index.js"
-
 [dev]
 port = 8787
