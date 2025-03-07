@@ -27,10 +27,29 @@ app.all('/api/*', async (c) => {
 // Serve the index.html for all other routes (SPA fallback)
 app.get('*', async (c) => {
   try {
+    // Try to serve index.html
     return await serveStatic({ path: './index.html' })(c);
   } catch (error) {
+    // Fallback content when index.html can't be served
     console.error('Error serving index.html:', error);
-    return c.text('Welcome to Payly! The application is currently being set up.', 200);
+    return c.html(`
+      <!DOCTYPE html>
+      <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Payly</title>
+          <style>
+            body { font-family: system-ui, sans-serif; margin: 0; padding: 2rem; text-align: center; }
+            h1 { color: #0066ff; }
+          </style>
+        </head>
+        <body>
+          <h1>Welcome to Payly</h1>
+          <p>The application is currently being set up.</p>
+        </body>
+      </html>
+    `, 200);
   }
 });
 
