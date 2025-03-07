@@ -10,21 +10,20 @@ bucket = "./dist/public"
 [build]
 command = "npm run build"
 
-# Static assets configuration
-[[rules]]
-type = "CommonJS"
-globs = ["**/*.js"]
+# Configure Cloudflare Pages-like static asset serving
+[site.static]
+root = "dist/public"
+include = ["**/*"]
+fallback_document = "index.html"
 
-# Route all requests to our SPA
+# Define routes for the worker
 [[routes]]
-pattern = "/*"
-custom_domain = true
+pattern = "/api/*"
 script = "dist/index.js"
 
-# Ensure all asset requests are properly handled
-[[rules]]
-type = "ESModule"
-globs = ["dist/index.js"]
+[[routes]]
+pattern = "/*"
+script = "dist/index.js"
 
 [dev]
 port = 8787
