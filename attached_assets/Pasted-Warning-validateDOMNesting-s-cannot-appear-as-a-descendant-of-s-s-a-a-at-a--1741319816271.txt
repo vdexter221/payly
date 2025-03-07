@@ -1,0 +1,52 @@
+Warning: validateDOMNesting(...): %s cannot appear as a descendant of <%s>.%s <a> a 
+    at a
+    at https://2ce00f53-66f5-4ff6-bcaf-52ba018805d0-00-190uo66av0w7c.riker.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-EVSHXWBZ.js?v=60609e70:41:13
+    at https://2ce00f53-66f5-4ff6-bcaf-52ba018805d0-00-190uo66av0w7c.riker.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-4WIT4MX7.js?v=60609e70:52:11
+    at https://2ce00f53-66f5-4ff6-bcaf-52ba018805d0-00-190uo66av0w7c.riker.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-4WIT4MX7.js?v=60609e70:33:11
+    at https://2ce00f53-66f5-4ff6-bcaf-52ba018805d0-00-190uo66av0w7c.riker.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-EVSHXWBZ.js?v=60609e70:41:13
+    at https://2ce00f53-66f5-4ff6-bcaf-52ba018805d0-00-190uo66av0w7c.riker.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-4WIT4MX7.js?v=60609e70:52:11
+    at https://2ce00f53-66f5-4ff6-bcaf-52ba018805d0-00-190uo66av0w7c.riker.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-4WIT4MX7.js?v=60609e70:33:11
+    at https://2ce00f53-66f5-4ff6-bcaf-52ba018805d0-00-190uo66av0w7c.riker.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-FQMLEXGY.js?v=60609e70:374:15
+    at https://2ce00f53-66f5-4ff6-bcaf-52ba018805d0-00-190uo66av0w7c.riker.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@radix-ui_react-navigation-menu.js?v=60609e70:748:13
+    at https://2ce00f53-66f5-4ff6-bcaf-52ba018805d0-00-190uo66av0w7c.riker.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@radix-ui_react-navigation-menu.js?v=60609e70:426:13
+    at a
+    at https://2ce00f53-66f5-4ff6-bcaf-52ba018805d0-00-190uo66av0w7c.riker.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/wouter.js?v=60609e70:337:18
+    at li
+    at https://2ce00f53-66f5-4ff6-bcaf-52ba018805d0-00-190uo66av0w7c.riker.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-EVSHXWBZ.js?v=60609e70:41:13
+    at Provider (https://2ce00f53-66f5-4ff6-bcaf-52ba018805d0-00-190uo66av0w7c.riker.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-FQMLEXGY.js?v=60609e70:30:15)
+    at https://2ce00f53-66f5-4ff6-bcaf-52ba018805d0-00-190uo66av0w7c.riker.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@radix-ui_react-navigation-menu.js?v=60609e70:299:13
+    at ul
+    at https://2ce00f53-66f5-4ff6-bcaf-52ba018805d0-00-190uo66av0w7c.riker.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-EVSHXWBZ.js?v=60609e70:41:13
+    at https://2ce00f53-66f5-4ff6-bcaf-52ba018805d0-00-190uo66av0w7c.riker.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-4WIT4MX7.js?v=60609e70:52:11
+    at https://2ce00f53-66f5-4ff6-bcaf-52ba018805d0-00-190uo66av0w7c.riker.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-4WIT4MX7.js?v=60609e70:33:11
+    at https://2ce00f53-66f5-4ff6-bcaf-52ba018805d0-00-190uo66av0w7c.riker.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-EVSHXWBZ.js?v=60609e70:41:13
+    at https://2ce00f53-66f5-4ff6-bcaf-52ba018805d0-00-190uo66av0w7c.riker.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-4WIT4MX7.js?v=60609e70:52:11
+    at https://2ce00f53-66f5-4ff6-bcaf-52ba018805d0-00-190uo66av0w7c.riker.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-4WIT4MX7.js?v=60609e70:33:11
+    at https://2ce00f53-66f5-4ff6-bcaf-52ba018805d0-00-190uo66av0w7c.riker.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-FQMLEXGY.js?v=60609e70:363:15
+    at Provider (https://2ce00f53-66f5-4ff6-bcaf-52ba018805d0-00-190uo66av0w7c.riker.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-FQMLEXGY.js?v=60609e70:293:15)
+    at CollectionProvider (https://2ce00f53-66f5-4ff6-bcaf-52ba018805d0-00-190uo66av0w7c.riker.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-FQMLEXGY.js?v=60609e70:354:13)
+    at https://2ce00f53-66f5-4ff6-bcaf-52ba018805d0-00-190uo66av0w7c.riker.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@radix-ui_react-navigation-menu.js?v=60609e70:739:13
+    at https://2ce00f53-66f5-4ff6-bcaf-52ba018805d0-00-190uo66av0w7c.riker.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-4WIT4MX7.js?v=60609e70:52:11
+    at https://2ce00f53-66f5-4ff6-bcaf-52ba018805d0-00-190uo66av0w7c.riker.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-4WIT4MX7.js?v=60609e70:33:11
+    at https://2ce00f53-66f5-4ff6-bcaf-52ba018805d0-00-190uo66av0w7c.riker.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-FQMLEXGY.js?v=60609e70:363:15
+    at div
+    at https://2ce00f53-66f5-4ff6-bcaf-52ba018805d0-00-190uo66av0w7c.riker.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-EVSHXWBZ.js?v=60609e70:41:13
+    at https://2ce00f53-66f5-4ff6-bcaf-52ba018805d0-00-190uo66av0w7c.riker.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@radix-ui_react-navigation-menu.js?v=60609e70:288:13
+    at _c3 (https://2ce00f53-66f5-4ff6-bcaf-52ba018805d0-00-190uo66av0w7c.riker.replit.dev/src/components/ui/navigation-menu.tsx:56:12)
+    at nav
+    at https://2ce00f53-66f5-4ff6-bcaf-52ba018805d0-00-190uo66av0w7c.riker.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-EVSHXWBZ.js?v=60609e70:41:13
+    at Provider (https://2ce00f53-66f5-4ff6-bcaf-52ba018805d0-00-190uo66av0w7c.riker.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-FQMLEXGY.js?v=60609e70:30:15)
+    at Provider (https://2ce00f53-66f5-4ff6-bcaf-52ba018805d0-00-190uo66av0w7c.riker.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-FQMLEXGY.js?v=60609e70:293:15)
+    at CollectionProvider (https://2ce00f53-66f5-4ff6-bcaf-52ba018805d0-00-190uo66av0w7c.riker.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-FQMLEXGY.js?v=60609e70:354:13)
+    at Provider (https://2ce00f53-66f5-4ff6-bcaf-52ba018805d0-00-190uo66av0w7c.riker.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-FQMLEXGY.js?v=60609e70:30:15)
+    at NavigationMenuProvider (https://2ce00f53-66f5-4ff6-bcaf-52ba018805d0-00-190uo66av0w7c.riker.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@radix-ui_react-navigation-menu.js?v=60609e70:230:5)
+    at https://2ce00f53-66f5-4ff6-bcaf-52ba018805d0-00-190uo66av0w7c.riker.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@radix-ui_react-navigation-menu.js?v=60609e70:86:7
+    at _c (https://2ce00f53-66f5-4ff6-bcaf-52ba018805d0-00-190uo66av0w7c.riker.replit.dev/src/components/ui/navigation-menu.tsx:23:11)
+    at div
+    at header
+    at Navigation
+    at div
+    at RootLayout (https://2ce00f53-66f5-4ff6-bcaf-52ba018805d0-00-190uo66av0w7c.riker.replit.dev/src/components/layout/RootLayout.tsx:19:38)
+    at Router
+    at QueryClientProvider (https://2ce00f53-66f5-4ff6-bcaf-52ba018805d0-00-190uo66av0w7c.riker.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@tanstack_react-query.js?v=60609e70:2848:3)
+    at App
