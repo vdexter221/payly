@@ -1,13 +1,10 @@
 // This file serves as an entry point for Cloudflare Workers
 import { Hono } from 'hono';
 import { Context, Next } from 'hono';
-import { serveStatic } from 'hono/cloudflare-workers';
 
 // Define the environment type for Cloudflare Workers
 interface Env {
-  ASSETS?: {
-    fetch: (request: Request) => Promise<Response>;
-  };
+  __STATIC_CONTENT: KVNamespace;
 }
 
 const app = new Hono<{ Bindings: Env }>();
@@ -31,26 +28,38 @@ app.all('/api/*', async (c: Context) => {
 // Serve static files and handle SPA routing
 app.get('*', async (c: Context) => {
   try {
-    // Check if we have access to static assets
-    if (!c.env.ASSETS) {
-      console.warn('Static assets not available, serving fallback content');
-      return serveFallbackContent(c);
+    // Get the path from the request
+    const url = new URL(c.req.url);
+    const path = url.pathname;
+
+    // Try to get the file from static content
+    const file = await c.env.__STATIC_CONTENT.get(path, {
+      type: 'arrayBuffer',
+    });
+
+    if (file) {
+      // Determine content type based on file extension
+      const contentType = getContentType(path);
+      return new Response(file, {
+        headers: {
+          'Content-Type': contentType,
+          'Cache-Control': 'public, max-age=31536000',
+        },
+      });
     }
 
-    // First try to serve the requested file
-    const response = await c.env.ASSETS.fetch(c.req);
-    
-    // If the file exists, return it
-    if (response.status !== 404) {
-      return response;
-    }
+    // If file not found, try index.html
+    const indexFile = await c.env.__STATIC_CONTENT.get('/index.html', {
+      type: 'arrayBuffer',
+    });
 
-    // If the file doesn't exist, try to serve index.html
-    const indexResponse = await c.env.ASSETS.fetch(new Request(new URL('/index.html', c.req.url)));
-    
-    // If index.html exists, return it
-    if (indexResponse.status !== 404) {
-      return indexResponse;
+    if (indexFile) {
+      return new Response(indexFile, {
+        headers: {
+          'Content-Type': 'text/html',
+          'Cache-Control': 'public, max-age=31536000',
+        },
+      });
     }
 
     // If neither exists, return the fallback content
@@ -81,6 +90,30 @@ function serveFallbackContent(c: Context) {
       </body>
     </html>
   `, 200);
+}
+
+// Helper function to determine content type
+function getContentType(path: string): string {
+  const ext = path.split('.').pop()?.toLowerCase();
+  const contentTypes: Record<string, string> = {
+    'html': 'text/html',
+    'css': 'text/css',
+    'js': 'application/javascript',
+    'json': 'application/json',
+    'png': 'image/png',
+    'jpg': 'image/jpeg',
+    'jpeg': 'image/jpeg',
+    'gif': 'image/gif',
+    'svg': 'image/svg+xml',
+    'ico': 'image/x-icon',
+    'woff': 'font/woff',
+    'woff2': 'font/woff2',
+    'ttf': 'font/ttf',
+    'eot': 'application/vnd.ms-fontobject',
+    'otf': 'font/otf',
+    'webp': 'image/webp',
+  };
+  return contentTypes[ext || ''] || 'application/octet-stream';
 }
 
 export default app;

@@ -21,3 +21,13 @@ format = "service-worker"
 [env.production]
 name = "payly"
 route = "payly.vdexter003.workers.dev/*"
+
+[site]
+bucket = "./dist/public"
+
+[build]
+command = "npm run build"
+
+[[kv_namespaces]]
+binding = "__STATIC_CONTENT"
+id = "static-content"
