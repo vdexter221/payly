@@ -5,7 +5,7 @@ import { serveStatic } from 'hono/cloudflare-workers';
 
 // Define the environment type for Cloudflare Workers
 interface Env {
-  ASSETS: {
+  ASSETS?: {
     fetch: (request: Request) => Promise<Response>;
   };
 }
@@ -31,6 +31,12 @@ app.all('/api/*', async (c: Context) => {
 // Serve static files and handle SPA routing
 app.get('*', async (c: Context) => {
   try {
+    // Check if we have access to static assets
+    if (!c.env.ASSETS) {
+      console.warn('Static assets not available, serving fallback content');
+      return serveFallbackContent(c);
+    }
+
     // First try to serve the requested file
     const response = await c.env.ASSETS.fetch(c.req);
     
@@ -48,45 +54,33 @@ app.get('*', async (c: Context) => {
     }
 
     // If neither exists, return the fallback content
-    return c.html(`
-      <!DOCTYPE html>
-      <html lang="en">
-        <head>
-          <meta charset="UTF-8">
-          <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>Payly</title>
-          <style>
-            body { font-family: system-ui, sans-serif; margin: 0; padding: 2rem; text-align: center; }
-            h1 { color: #0066ff; }
-          </style>
-        </head>
-        <body>
-          <h1>Welcome to Payly</h1>
-          <p>The application is currently being set up.</p>
-        </body>
-      </html>
-    `, 200);
+    return serveFallbackContent(c);
   } catch (error) {
     console.error('Error serving content:', error);
-    return c.html(`
-      <!DOCTYPE html>
-      <html lang="en">
-        <head>
-          <meta charset="UTF-8">
-          <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>Payly</title>
-          <style>
-            body { font-family: system-ui, sans-serif; margin: 0; padding: 2rem; text-align: center; }
-            h1 { color: #0066ff; }
-          </style>
-        </head>
-        <body>
-          <h1>Welcome to Payly</h1>
-          <p>The application is currently being set up.</p>
-        </body>
-      </html>
-    `, 200);
+    return serveFallbackContent(c);
   }
 });
+
+// Helper function to serve fallback content
+function serveFallbackContent(c: Context) {
+  return c.html(`
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Payly</title>
+        <style>
+          body { font-family: system-ui, sans-serif; margin: 0; padding: 2rem; text-align: center; }
+          h1 { color: #0066ff; }
+        </style>
+      </head>
+      <body>
+        <h1>Welcome to Payly</h1>
+        <p>The application is currently being set up.</p>
+      </body>
+    </html>
+  `, 200);
+}
 
 export default app;
