@@ -1,4 +1,3 @@
-
 name = "payly"
 compatibility_date = "2024-03-06"
 main = "dist/index.js"
@@ -15,3 +14,10 @@ crons = []
 
 [dev]
 port = 8787
+
+[build.upload]
+format = "service-worker"
+
+[env.production]
+name = "payly"
+route = "payly.vdexter003.workers.dev/*"
