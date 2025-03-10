@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'wouter';
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
@@ -33,7 +32,7 @@ export const NavigationMenuSafeLink: React.FC<{
   return (
     <NavigationMenu.Item>
       <Link href={href}>
-        {(isActive) => (
+        {({ isActive }) => (
           <span 
             className={cn(
               className,

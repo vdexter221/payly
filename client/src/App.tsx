@@ -18,7 +18,7 @@ const base = import.meta.env.BASE_URL;
 
 // Custom hook to handle base path
 const useBasePath = () => {
-  const [location] = useRouter();
+  const location = useRouter();
   return (to: string) => {
     // Remove leading slash if present
     const path = to.startsWith('/') ? to.slice(1) : to;

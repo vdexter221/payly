@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import { Link } from 'wouter';
 
 export default function Hero() {
   return (
@@ -22,7 +23,7 @@ export default function Hero() {
           </p>
           <div className="mt-10 flex items-center justify-center gap-x-6">
             <Button size="lg" className="h-12 px-6">
-              Get Started
+              <Link href="/login">Get Started</Link>
             </Button>
             <Button variant="outline" size="lg" className="h-12 px-6">
               Live Demo
