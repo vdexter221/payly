@@ -14,16 +14,7 @@ const base = process.env.NODE_ENV === 'production' ? '/payly/' : '/';
 export default defineConfig({
   plugins: [
     react(),
-    runtimeErrorOverlay(),
     themePlugin(),
-    ...(process.env.NODE_ENV !== "production" &&
-    process.env.REPL_ID !== undefined
-      ? [
-          await import("@replit/vite-plugin-cartographer").then((m) =>
-            m.cartographer(),
-          ),
-        ]
-      : []),
   ],
   base: base,
   resolve: {
@@ -37,8 +28,8 @@ export default defineConfig({
     outDir: path.resolve(__dirname, "dist"),
     emptyOutDir: true,
     rollupOptions: {
-      output: {
-        manualChunks: undefined,
+      input: {
+        main: path.resolve(__dirname, "client/index.html"),
       },
     },
   },
